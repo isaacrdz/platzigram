@@ -10,6 +10,14 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
+app.get('/signup', function(req, res) {
+    res.render('index');
+});
+
+app.get('/signin', function(req, res) {
+    res.render('index');
+});
+
 app.listen(app.get('port'), function(err) {
 
     if (err) {
