@@ -10,5 +10,10 @@ gulp.task('style', function(){
     .pipe(gulp.dest('public/'));
 });
 
+gulp.task('assets', function(){
+  gulp
+    .src('assets/*')
+    .pipe(gulp.dest('public'))
+});
 
-gulp.task('default',['style'])
+gulp.task('default',['style','assets'])
