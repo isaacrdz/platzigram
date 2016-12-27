@@ -22,6 +22,7 @@
     "watchify": "^3.8.0"
   },
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "start": "gulp watch & nodemon"
   }
 }
