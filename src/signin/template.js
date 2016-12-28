@@ -10,10 +10,10 @@ var signinForm = yo`<div class="col s12 m7">
 
                 <div class="section">
                     <a href="" class="btn btn-fb hide-on-small-only">Iniciar sesion con facebook</a>
-                    <a href="" class="btn btn-fb hide-on-med-and-up">Iniciar sesion</a>
+                    <a href="" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i> Iniciar sesion</a>
 
                 </div>
-                <div class="diver"></div>
+                <div class="divider"></div>
                 <div class="section">
                     <input type="text" name="username" placeholder="Nombre de usuario">
                     <input type="password" name="password" placeholder="Contraseña">

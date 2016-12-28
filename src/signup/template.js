@@ -10,10 +10,10 @@ var signupForm = yo`<div class="col s12 m7">
                 <h2>Registrare para ver fotos de tus amigos</h2>
                 <div class="section">
                     <a href="" class="btn btn-fb hide-on-small-only">Iniciar sesion con facebook</a>
-                    <a href="" class="btn btn-fb hide-on-med-and-up">Iniciar sesion</a>
+                    <a href="" class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i> Iniciar sesion</a>
 
                 </div>
-                <div class="diver"></div>
+                <div class="divider"></div>
                 <div class="section">
                     <input type="email" name="email" placeholder="Correo Electronico">
                     <input type="text" name="name" placeholder="Nombre completo">
