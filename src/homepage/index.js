@@ -2,32 +2,23 @@ var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
 var title = require('title');
+var request = require('superagent');
 
-page('/', function(ctx, next){
+page('/', loadPictures, function(ctx, next){
   title('Platzigram')
   var main = document.getElementById('main-container');
 
-  pictures = [
-    {
-      user:{
-        username:"zackrdz",
-        avatar:"https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-1/c0.94.308.308/1918648_311187890598_6661099_n.jpg?oh=e6c4d792b8703c041fc40bebe3b02fef&oe=5920447D",
-      },
-      url:"http://materializecss.com/images/office.jpg",
-      likes:0,
-      liked:false,
-      createdAt: new Date()
-    },
-    {
-      user:{
-        username:"kcamacho",
-        avatar:"https://scontent-dft4-1.xx.fbcdn.net/v/t1.0-1/c0.94.308.308/1918648_311187890598_6661099_n.jpg?oh=e6c4d792b8703c041fc40bebe3b02fef&oe=5920447D",
-      },
-      url:"http://materializecss.com/images/office.jpg",
-      likes:100,
-      liked:true,
-      createdAt: new Date().setDate(new Date().getDate() - 10)
-    },
-  ];
-  empty(main).appendChild(template(pictures));
+
+  empty(main).appendChild(template(ctx.pictures));
 })
+
+function loadPictures(ctx, next){
+  request
+    .get('/api/pictures')
+    .end(function(err, res) {
+      if (err) return console.log(err);
+
+      ctx.pictures = res.body;
+      next();
+    })
+}
