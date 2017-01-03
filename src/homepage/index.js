@@ -4,6 +4,7 @@ var template = require('./template');
 var title = require('title');
 var request = require('superagent');
 var header = require('../header');
+var axios = require('axios');
 
 page('/', header, loadPictures, function(ctx, next){
   title('Platzigram')
@@ -21,5 +22,22 @@ function loadPictures(ctx, next){
 
       ctx.pictures = res.body;
       next();
+    })
+}
+
+function loadPicturesAxios(ctx, next){
+  axios
+    .get('/api/pictures')
+    .then(function(res) {
+      ctx.pictures = res.data;
+      var pic = ctx.pictures[0];
+      return axios.get(`/api/pictures/${pic.id}`)
+    })
+    .then(function(res) {
+      ctx.pictures[0] = res.data;
+      next();
+    })
+    .catch(function(err){
+      console.log(err);
     })
 }
