@@ -17,7 +17,7 @@ module.exports = function (pictures) {
         </form>
       </div>
     </div>
-    <div class="row">
+a    <div class="row">
       <div class="col s12 m10 offset-m1 l6 offset-l3">
         ${pictures.map(function (pic) {
           return picture(pic);
