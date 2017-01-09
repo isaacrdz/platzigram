@@ -61,7 +61,7 @@ app.get('/api/pictures', function(req,res,next){
 
 app.post('/api/pictures', function(req, res){
   upload(req, res, function(err){
-    if(error){
+    if(err){
       return res.send(500,"Error uploading file");
     }
     res.send("File uploaded");
