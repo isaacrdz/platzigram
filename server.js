@@ -54,9 +54,11 @@ app.get('/api/pictures', function(req,res,next){
       createdAt: new Date().setDate(new Date().getDate() - 10)
     },
   ];
-  setTimeout(function(){
-    res.send(pictures);
-  },2000)
+
+  res.send(pictures);
+
+
+
 });
 
 app.post('/api/pictures', function(req, res){
@@ -67,6 +69,36 @@ app.post('/api/pictures', function(req, res){
     res.send("File uploaded");
   })
 })
+
+app.get('/api/user/:username', function(req,res){
+  const user = {
+    username:'zackrdz',
+    avatar:'https://www.facebook.com/photo.php?fbid=311187890598&set=a.10150242222720599.512372.689510598&type=3&theater',
+    pictures:[
+      {
+        id:1,
+        src:'http://lorempixel.com/400/400/',
+        likes:3
+      },
+      {
+        id:2,
+        src:'http://lorempixel.com/400/400/',
+        likes:4
+      },
+      {
+        id:3,
+        src:'http://lorempixel.com/400/400/',
+        likes:5
+      }
+    ]
+  }
+  res.send(user);
+})
+
+app.get('/:username', function(req,res){
+  res.render('index', {title:`Platzigram - ${req.params.username}`})
+})
+
 
 app.listen(app.get('port'), function(err) {
 

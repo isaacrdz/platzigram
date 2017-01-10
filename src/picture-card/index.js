@@ -12,7 +12,7 @@ module.exports = function pictureCard(pic){
             <img class="activator" src="${picture.url}">
         </div>
         <div class="card-content">
-            <a href="${picture.user.username}">
+            <a href="/${picture.user.username}">
                 <img src="${picture.user.avatar}" class="avatar" />
                 <span class="username">${picture.user.username}</span>
             </a>
